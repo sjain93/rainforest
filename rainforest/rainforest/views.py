@@ -11,3 +11,9 @@ def home(request):
     context = {'prods': product}
     response = render(request, 'index.html', context)
     return HttpResponse(response)
+
+def product_page(request, id):
+    product_item = Product.objects.get(pk= int(id) )
+    context ={'item': product_item}
+    response = render(request, 'product.html', context)
+    return HttpResponse(response)

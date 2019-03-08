@@ -2,10 +2,12 @@
 {% block content %}
 <div>
   {% for items in prods %}
+    <a href="{% url 'product_page' id=items.pk %}">
     <h2>{{ items.name }}</h2>
+    </a>
     <hr />
     <p>{{ items.description }}</p>
-    <p>Price: {{ items.price }}</p>
+    <p>Price in cents: {{ items.price }}</p>
   {% endfor %}
 </div>
 {% endblock %}
