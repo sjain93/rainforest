@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rainforest.views import home, root
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', root),
+    path('home/', home),
+
 ]
