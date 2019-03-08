@@ -23,6 +23,6 @@ urlpatterns = [
     path('', root),
     path('home/', home),
     path('home/<int:id>', product_page, name="product_page"),
-    path('new', new_form)
+    path('new/', new_form, name="new_form")
 
 ]
