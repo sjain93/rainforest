@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>
-  ajsdhkgk
-</p>
+<div>
+  {% for items in prods %}
+    <h2>{{ items.name }}</h2>
+    <hr />
+    <p>{{ items.description }}</p>
+    <p>Price: {{ items.price }}</p>
+  {% endfor %}
+</div>
 {% endblock %}
