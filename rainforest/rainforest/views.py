@@ -14,6 +14,7 @@ def home(request):
 
 def product_page(request, id):
     product_item = Product.objects.get(pk= int(id) )
-    context ={'item': product_item}
+    review = product_item.product.all()
+    context ={'item': product_item, 'item_review': review}
     response = render(request, 'product.html', context)
     return HttpResponse(response)

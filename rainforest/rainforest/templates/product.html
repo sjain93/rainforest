@@ -3,4 +3,14 @@
 <h2>{{ item.name }}</h2>
 <p>{{ item.description }}</p>
 <p>Price in cents: {{ item.price }}</p>
+<hr />
+<h3>Reviews</h3>
+{% for review in item_review %}
+  <ul>
+    <li>
+      <p>{{ review.name }} | {{ review.date_created }} </p>
+      <p>{{ review.description  }} </p>
+    </li>
+  </ul>
+{% endfor %}
 {% endblock %}
