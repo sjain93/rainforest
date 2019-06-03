@@ -8,6 +8,10 @@ from rainforest.forms import Product_Form
 def root(request):
     return HttpResponseRedirect('home')
 
+def test(request):
+    response = render(request, 'test.html')
+    return HttpResponse(response)
+
 def home(request):
     product = Product.objects.all()
     context = {'prods': product}

@@ -5,8 +5,15 @@
     <title>Rainforest</title>
   </head>
   <body>
-    <h1> Welcome to the Rainforest</h1>
+    <h1><a href="{% url 'homepage'%}">Rainforest</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li><a href="{% url 'new_form' %}">New Product</a></li>
+      </ul>
+    </nav>
     {% block content%}
     {% endblock%}
   </body>
 </html>
+
