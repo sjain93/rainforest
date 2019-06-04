@@ -1,12 +1,13 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Product (models.Model):
     name = models.CharField(max_length=255)
-    description = models.CharField(max_length = 255)
-    price = models.IntegerField()
+    description = models.CharField(max_length = 500)
+    price = models.IntegerField(validators=[MinValueValidator(0)])
 
     def __str__(self):
-        return self.name
+        return "Name: {} Price: {} Description: {}".format(self.name, self.price, self.description)
 
 class Review (models.Model):
     name = models.CharField(max_length=255)
