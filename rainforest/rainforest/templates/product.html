@@ -6,9 +6,9 @@
 <hr />
 <h3>Reviews</h3>
 {% for review in item_review %}
-  <ul>
-    <li>
-      <p>{{ review.name }} | {{ review.date_created }} </p>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <h6> {{ review.date_created }} <span class="badge badge-light">{{ review.name }}</span> </h6>
       <p>{{ review.description  }} </p>
     </li>
   </ul>
