@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
 {% block content %}
-<h2>Add a new product to our catelogue</h2>
-<form class="add_product" action="{% url 'new_form'%}" method="post">
+<h2>Add a new product to our catalogue</h2>
+<form class="add_product form-group" action="{% url 'new_form'%}" method="post">
   {% csrf_token %}
-  {{ form }}
- <input type="submit" name="submit" value="Submit">
+  {{ form|crispy }}
+  <hr/>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
+
