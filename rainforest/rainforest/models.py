@@ -9,6 +9,10 @@ class Product (models.Model):
     def __str__(self):
         return "Name: {} Price: {} Description: {}".format(self.name, self.price, self.description)
 
+    def price_in_dollars(self):
+        dollars = self.price/ 100
+        return "${:.2f}".format(dollars)
+    
 class Review (models.Model):
     name = models.CharField(max_length=255)
     date_created = models.DateField(auto_now_add=True)
