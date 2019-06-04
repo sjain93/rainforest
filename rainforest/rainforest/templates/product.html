@@ -2,7 +2,11 @@
 {% block content %}
 <h2>{{ item.name }}</h2>
 <p>{{ item.description }}</p>
-<p>Price in cents: {{ item.price }}</p>
+<p>{{ item.price_in_dollars }}</p>
+<div>
+  <a href="{% url 'edit_product' id=item.id %}" class="btn btn-primary">Edit</a>
+  <a href="{% url 'delete_product' id=item.id %}" class="btn btn-danger">Delete</a>
+</div>
 <hr />
 <h3>Reviews</h3>
 {% for review in item_review %}
