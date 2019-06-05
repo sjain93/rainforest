@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
@@ -67,3 +67,18 @@ def delete_product(request, id):
     product = Product.objects.get(pk=id)
     product.delete()
     return HttpResponseRedirect('/home')
+
+def product_list(request):
+    MAX_OBJECTS = 20
+    product_list = Product.objects.all()[:MAX_OBJECTS]
+    data = {"products": list(product_list.values("name", "description", "price"))}
+    return JsonResponse(data)
+
+def product_detail(request, id):
+    product_detail = get_object_or_404(Product, pk=id)
+    data = {"product_detail": {
+        "name": product_detail.name,
+        "description": product_detail.description,
+        "price_cents": product_detail.price
+    }}
+    return JsonResponse(data)
